@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   read_file.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 18:15:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/03/07 19:25:03 by aptive           ###   ########.fr       */
+/*   Created: 2023/03/07 19:19:55 by aptive            #+#    #+#             */
+/*   Updated: 2023/03/07 19:25:19 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/web_serv.hpp"
 
-int main(int argc, char ** argv)
+std::list<std::string> open_and_check_conf_file(std::string file)
 {
+	std::ifstream	flux(file.c_str());
 	std::list <std::string> list_conf;
+	std::string line;
 
-	try
-	{
-		check_arg(argc, argv);
-		list_conf = open_and_check_conf_file(argv[1]);
-		affichage_list(list_conf);
-
-
-		std::cout << "No problems" << std::endl;
-	}
-	catch(const std::string except)
-	{
-		std::cout << except;
-	}
-	return 0;
+	if (!flux.is_open())
+		throw std::string("Error : Unable to open the file !\n");
+	while (!flux.eof() && getline(flux, line))
+		list_conf.push_back(line);
+	return list_conf;
 }

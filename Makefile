@@ -6,7 +6,7 @@
 #    By: aptive <aptive@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 17:28:02 by aptive            #+#    #+#              #
-#    Updated: 2023/03/07 18:19:26 by aptive           ###   ########.fr        #
+#    Updated: 2023/03/07 19:24:48 by aptive           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ OBJDIR		=	./obj
 
 # src / obj files
 SRC		=	main.cpp\
+			affichage.cpp\
+			read_file.cpp\
+			verif_arg.cpp\
 
 
 # nommage automatique des fichiers objets d'apres les noms des sources C

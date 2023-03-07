@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   affichage.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 18:15:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/03/07 19:25:03 by aptive           ###   ########.fr       */
+/*   Created: 2023/03/07 19:23:07 by aptive            #+#    #+#             */
+/*   Updated: 2023/03/07 19:23:10 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/web_serv.hpp"
 
-int main(int argc, char ** argv)
+void affichage_list(std::list<std::string> list)
 {
-	std::list <std::string> list_conf;
-
-	try
+	int i = 0;
+	for (std::list<std::string>::iterator it = list.begin(); it != list.end(); it++)
 	{
-		check_arg(argc, argv);
-		list_conf = open_and_check_conf_file(argv[1]);
-		affichage_list(list_conf);
-
-
-		std::cout << "No problems" << std::endl;
+		i++;
+		std::cout << "list " << i << " : " << *it << std::endl;
 	}
-	catch(const std::string except)
-	{
-		std::cout << except;
-	}
-	return 0;
 }
