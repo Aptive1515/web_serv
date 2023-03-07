@@ -42,6 +42,16 @@ qui indique si la demande a été traitée avec succès ou non. Si la demande es
 le corps de la réponse,
 accompagné d'en-têtes de réponse qui fournissent des informations sur le contenu et sur la façon dont il doit être traité par le client.
 
+	- Les méthodes HTTP les plus courantes sont GET, POST, PUT, DELETE, HEAD et OPTIONS. Chaque méthode correspond à une action différente
+	que le client souhaite effectuer sur une ressource Web.
+
+	- Les codes de réponse HTTP sont des nombres à trois chiffres qui indiquent si la requête a été traitée avec succès ou non.
+	Par exemple, le code 200 indique que la requête a été traitée avec succès, tandis que le code 404 indique que la
+	ressource demandée n'a pas été trouvée sur le serveur.
+
+	- Les en-têtes HTTP peuvent être utilisés pour transmettre des informations supplémentaires entre le client et le serveur.
+	Par exemple, l'en-tête "User-Agent" peut être utilisé pour indiquer le type de navigateur Web utilisé par le client,
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 # Fonction utile
 
