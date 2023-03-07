@@ -1,21 +1,45 @@
-Un serveur HTTP en C++ est un programme qui écoute les connexions entrantes sur un port spécifique (généralement le port 80 pour les requêtes HTTP),
-traite les requêtes HTTP reçues, et renvoie les réponses HTTP appropriées.
+Un serveur HTTP en C++ est un programme qui écoute les connexions entrantes sur un port spécifique
+(généralement le port 80 pour les requêtes HTTP), traite les requêtes HTTP reçues,
+et renvoie les réponses HTTP appropriées.
 
 Voici les étapes générales pour implémenter un serveur HTTP en C++ :
 
-Créez un socket serveur en utilisant la fonction socket() de la bibliothèque de sockets, spécifiez l'adresse IP et le port sur lesquels vous souhaitez écouter les connexions entrantes à l'aide de la fonction bind() et écoutez les connexions entrantes à l'aide de la fonction listen().
+Créez un socket serveur en utilisant la fonction socket() de la bibliothèque de sockets,
+spécifiez l'adresse IP et le port sur lesquels vous souhaitez écouter les connexions entrantes à l'aide de
+la fonction bind() et écoutez les connexions entrantes à l'aide de la fonction listen().
 
-Acceptez les connexions entrantes en utilisant la fonction accept() de la bibliothèque de sockets. Cette fonction retourne un nouveau socket qui sera utilisé pour communiquer avec le client.
+Acceptez les connexions entrantes en utilisant la fonction accept() de la bibliothèque de sockets.
+Cette fonction retourne un nouveau socket qui sera utilisé pour communiquer avec le client.
 
-Recevez les requêtes HTTP à l'aide de la fonction recv() et analysez-les pour extraire les informations pertinentes, telles que la méthode HTTP (GET, POST, etc.), l'URL et les en-têtes.
+Recevez les requêtes HTTP à l'aide de la fonction recv() et analysez-les pour extraire les informations pertinentes,
+telles que la méthode HTTP (GET, POST, etc.), l'URL et les en-têtes.
 
-Traitez la requête en fonction des informations extraites et générez une réponse appropriée en utilisant la fonction send() pour envoyer la réponse au client.
+Traitez la requête en fonction des informations extraites et générez une réponse appropriée en utilisant
+la fonction send() pour envoyer la réponse au client.
 
 Fermez le socket client et retournez en mode d'écoute pour de nouvelles connexions entrantes.
 
 Répétez les étapes 2 à 5 pour chaque connexion entrante.
 
-----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Une requête HTTP (Hypertext Transfer Protocol) est une demande envoyée par un client à un serveur Web pour demander un contenu Web.
+La requête est généralement envoyée à un serveur Web à l'aide d'une URL (Uniform Resource Locator) qui identifie l'emplacement du
+contenu Web que le client souhaite récupérer.
+
+Une requête HTTP est composée d'une ligne de requête suivie d'en-têtes de requête facultatifs et éventuellement d'un corps de requête.
+La ligne de requête contient le type de requête, l'URL de la ressource demandée et la version du protocole HTTP utilisée.
+Les en-têtes de requête fournissent des informations supplémentaires sur la requête, telles que les informations d'authentification,
+les informations de langue préférée et les informations sur le navigateur client.
+Le corps de la requête peut contenir des données supplémentaires envoyées avec la requête, telles que des données de formulaire ou
+des fichiers.
+
+Une fois qu'une requête est reçue par un serveur Web, le serveur peut répondre en envoyant un code de réponse HTTP,
+qui indique si la demande a été traitée avec succès ou non. Si la demande est réussie, le serveur envoie le contenu Web demandé dans
+le corps de la réponse,
+accompagné d'en-têtes de réponse qui fournissent des informations sur le contenu et sur la façon dont il doit être traité par le client.
+
+----------------------------------------------------------------------------------------------------------------------------------------
 
 execve() : exécute un programme avec un ensemble de paramètres et un environnement définis.
 Cette fonction est utile pour exécuter un programme externe à partir d'un programme en cours d'exécution.
