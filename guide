@@ -1,0 +1,15 @@
+Un serveur HTTP en C++ est un programme qui écoute les connexions entrantes sur un port spécifique (généralement le port 80 pour les requêtes HTTP), traite les requêtes HTTP reçues, et renvoie les réponses HTTP appropriées.
+
+Voici les étapes générales pour implémenter un serveur HTTP en C++ :
+
+Créez un socket serveur en utilisant la fonction socket() de la bibliothèque de sockets, spécifiez l'adresse IP et le port sur lesquels vous souhaitez écouter les connexions entrantes à l'aide de la fonction bind() et écoutez les connexions entrantes à l'aide de la fonction listen().
+
+Acceptez les connexions entrantes en utilisant la fonction accept() de la bibliothèque de sockets. Cette fonction retourne un nouveau socket qui sera utilisé pour communiquer avec le client.
+
+Recevez les requêtes HTTP à l'aide de la fonction recv() et analysez-les pour extraire les informations pertinentes, telles que la méthode HTTP (GET, POST, etc.), l'URL et les en-têtes.
+
+Traitez la requête en fonction des informations extraites et générez une réponse appropriée en utilisant la fonction send() pour envoyer la réponse au client.
+
+Fermez le socket client et retournez en mode d'écoute pour de nouvelles connexions entrantes.
+
+Répétez les étapes 2 à 5 pour chaque connexion entrante.
