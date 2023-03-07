@@ -1,3 +1,5 @@
+# web_serv
+
 Un serveur HTTP en C++ est un programme qui écoute les connexions entrantes sur un port spécifique
 (généralement le port 80 pour les requêtes HTTP), traite les requêtes HTTP reçues,
 et renvoie les réponses HTTP appropriées.
@@ -22,6 +24,7 @@ Fermez le socket client et retournez en mode d'écoute pour de nouvelles connexi
 Répétez les étapes 2 à 5 pour chaque connexion entrante.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
+# Requête HTTP
 
 Une requête HTTP (Hypertext Transfer Protocol) est une demande envoyée par un client à un serveur Web pour demander un contenu Web.
 La requête est généralement envoyée à un serveur Web à l'aide d'une URL (Uniform Resource Locator) qui identifie l'emplacement du
@@ -40,6 +43,7 @@ le corps de la réponse,
 accompagné d'en-têtes de réponse qui fournissent des informations sur le contenu et sur la façon dont il doit être traité par le client.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
+# Fonction utile
 
 execve() : exécute un programme avec un ensemble de paramètres et un environnement définis.
 Cette fonction est utile pour exécuter un programme externe à partir d'un programme en cours d'exécution.
