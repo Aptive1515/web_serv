@@ -24,7 +24,7 @@ Fermez le socket client et retournez en mode d'écoute pour de nouvelles connexi
 Répétez les étapes 2 à 5 pour chaque connexion entrante.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-# Requête HTTP
+## Requête HTTP
 
 Une requête HTTP (Hypertext Transfer Protocol) est une demande envoyée par un client à un serveur Web pour demander un contenu Web.
 La requête est généralement envoyée à un serveur Web à l'aide d'une URL (Uniform Resource Locator) qui identifie l'emplacement du
@@ -53,7 +53,7 @@ ressource demandée n'a pas été trouvée sur le serveur.
 Par exemple, l'en-tête "User-Agent" peut être utilisé pour indiquer le type de navigateur Web utilisé par le client,
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-# Fonction utile
+## Fonction utile
 
 - **execve()** : exécute un programme avec un ensemble de paramètres et un environnement définis.
 Cette fonction est utile pour exécuter un programme externe à partir d'un programme en cours d'exécution.
