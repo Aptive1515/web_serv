@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:15:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/03/07 19:25:03 by aptive           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:49:13 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char ** argv)
 {
-	std::list <std::string> list_conf;
+	std::list <std::pair<std::string, std::string> > list_conf;
 
 	try
 	{
