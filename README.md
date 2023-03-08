@@ -96,3 +96,21 @@ Ces fonctions sont utilisées pour envoyer et recevoir des données sur un socke
 
 - **bind()** : attache un socket à une adresse IP et à un port.
 Cette fonction est utilisée pour spécifier l'adresse IP et le port sur lequel le socket doit écouter les conn
+
+----------------------------------------------------------------------------------------------------------------------------------------
+## Cree un socket
+
+Pour créer un socket pour le protocole HTTP, vous devez d'abord déterminer le type de socket à utiliser. Dans ce cas, le protocole HTTP utilise le protocole de transport TCP (Transmission Control Protocol), donc nous allons créer un **socket TCP**.
+
+nous créons un nouveau socket en utilisant la fonction **socket()** avec les arguments **AF_INET** pour spécifier le domaine d'adressage IPv4, **SOCK_STREAM** pour spécifier le type de socket TCP, et 0 pour le protocole par défaut.
+
+Ensuite, nous configurons l'adresse IP et le port du serveur en remplissant une structure **sockaddr_in** avec les informations nécessaires. Nous utilisons **inet_addr()** pour convertir l'adresse IP sous forme de chaîne de caractères en un format binaire utilisé par la structure sockaddr_in, et **htons()** pour convertir le numéro de port en ordre de bits réseau.
+
+Enfin, nous utilisons la fonction **connect()** pour établir une connexion TCP avec le serveur en passant le socket, l'adresse IP et le port du serveur à la fonction.
+
+Notez que ce code ne fait que créer et connecter le socket, il n'envoie ni ne reçoit aucune donnée HTTP. Pour cela, vous devez utiliser des fonctions telles que **send()** et **recv()** pour envoyer et recevoir des données via le socket.
+
+## Lien utile
+
+- https://c.developpez.com/cours/sockets-c-cpp-demystifies/
+- http://sdz.tdct.org/sdz/les-sockets.html

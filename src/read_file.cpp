@@ -6,7 +6,7 @@
 /*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:19:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/03/08 15:49:29 by aptive           ###   ########.fr       */
+/*   Updated: 2023/03/08 16:17:28 by aptive           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ std::pair<std::string, std::string> parse_to_pair (std::string str)
 {
 	std::string s1;
 	std::string s2;
-	std::cout << "----------------------------------------" << std::endl;
 
 	int i = -1;
 	while ( ++i < static_cast<int>(str.size()) && str[i] != ':')
@@ -38,8 +37,11 @@ std::list<std::pair<std::string, std::string> > open_and_check_conf_file(std::st
 		throw std::string("Error : Unable to open the file !\n");
 	while (!flux.eof() && getline(flux, line))
 	{
-		parse_to_pair (line);
-		list_conf.push_back(parse_to_pair(line));
+		if (!line.empty())
+		{
+			parse_to_pair (line);
+			list_conf.push_back(parse_to_pair(line));
+		}
 	}
 	return list_conf;
 }
