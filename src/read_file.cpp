@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:19:55 by aptive            #+#    #+#             */
-/*   Updated: 2023/03/08 16:17:28 by aptive           ###   ########.fr       */
+/*   Updated: 2023/04/10 14:22:30 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ std::pair<std::string, std::string> parse_to_pair (std::string str)
 	return my_pair;
 }
 
-std::list<std::pair<std::string, std::string> > open_and_check_conf_file(std::string file)
+std::map<std::string, std::string> open_and_check_conf_file(std::string file)
 {
 	std::ifstream	flux(file.c_str());
-	std::list <std::pair<std::string, std::string> > list_conf;
+	std::map<std::string, std::string> list_conf;
 	std::string line;
 
 	if (!flux.is_open())
@@ -40,7 +40,7 @@ std::list<std::pair<std::string, std::string> > open_and_check_conf_file(std::st
 		if (!line.empty())
 		{
 			parse_to_pair (line);
-			list_conf.push_back(parse_to_pair(line));
+			list_conf.insert(parse_to_pair(line));
 		}
 	}
 	return list_conf;

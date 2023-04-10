@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aptive <aptive@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:15:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/03/08 16:09:39 by aptive           ###   ########.fr       */
+/*   Updated: 2023/04/10 14:18:19 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int main(int argc, char ** argv)
 {
-	std::list <std::pair<std::string, std::string> > list_conf;
-
+	// std::list <std::pair<std::string, std::string> > list_conf;
+	std::map <std::string, std::string> list_conf;
+	
 	try
 	{
 		check_arg(argc, argv);
