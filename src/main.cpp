@@ -6,7 +6,7 @@
 /*   By: tdelauna <tdelauna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 18:15:00 by aptive            #+#    #+#             */
-/*   Updated: 2023/04/10 14:40:15 by tdelauna         ###   ########.fr       */
+/*   Updated: 2023/04/10 14:44:18 by tdelauna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int argc, char ** argv)
 {
 	// std::list <std::pair<std::string, std::string> > list_conf;
 	std::map <std::string, std::string> list_conf;
+	int server_fd(-1);
 
 	try
 	{
@@ -28,7 +29,7 @@ int main(int argc, char ** argv)
 		// AF_INET = famille d'adresses IPv4
 		// SOCK_STREAM = type de socket orienté connexion
 		// 0 = protocole par défaut
-		int server_fd = socket(AF_INET, SOCK_STREAM, 0);
+		server_fd = socket(AF_INET, SOCK_STREAM, 0);
 		if (server_fd == -1)
 			throw std::string("Error : Error during creation of the socket !\n");
 
@@ -51,17 +52,13 @@ int main(int argc, char ** argv)
 
 		// Lier le socket à l'adresse et au port du serveur
 		if (bind(server_fd, (sockaddr*)&server_addr, sizeof(server_addr)) < 0)
-		{
-			close(server_fd);
 			throw std::string("Error : Error during connection of the socket !\n");
-		}
 
 		// Mettre le socket en mode écoute
-		if (listen(server_fd, 10) < 0) {
-			// Utiliser une queue de connexion maximale de 10
-			close(server_fd);
+		// Utiliser une queue de connexion maximale de 10
+		if (listen(server_fd, 10) < 0)
 			throw std::string("Error : Error listen of the socket !\n");
-		}
+
 
 		// Accepter les connexions entrantes
 		while (true) {
@@ -69,20 +66,15 @@ int main(int argc, char ** argv)
 			socklen_t client_addr_len = sizeof(client_addr);
 			int client_fd = accept(server_fd, (sockaddr*)&client_addr, &client_addr_len);
 
-		if (client_fd < 0)
-		{
-			close(server_fd);
-			throw std::string("Error : Error during acception of the entrance connexion !\n");
-			close(server_fd);
-			return 1;
-		}
+			if (client_fd < 0)
+				throw std::string("Error : Error during acception of the entrance connexion !\n");
 
-		// Gérer la connexion entrante
-		std::string message = "HELLO WORLD !";
-		send(client_fd, message.c_str(), message.length(), 0);
+			// Gérer la connexion entrante
+			std::string message = "HELLO WORLD !";
+			send(client_fd, message.c_str(), message.length(), 0);
 
-		// Fermer la connexion
-		close(client_fd);
+			// Fermer la connexion
+			close(client_fd);
 		}
 		// Fermer le socket
 		close(server_fd);
@@ -91,6 +83,8 @@ int main(int argc, char ** argv)
 	}
 	catch(const std::string except)
 	{
+		if (server_fd != -1)
+			close(server_fd);
 		std::cout << except;
 	}
 	return 0;
