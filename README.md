@@ -114,3 +114,25 @@ Notez que ce code ne fait que créer et connecter le socket, il n'envoie ni ne r
 
 - https://c.developpez.com/cours/sockets-c-cpp-demystifies/
 - http://sdz.tdct.org/sdz/les-sockets.html
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## NORME RFC
+
+Le protocole HTTP (Hypertext Transfer Protocol) est un protocole de communication client-serveur utilisé pour la transmission de données sur le Web. Le protocole HTTP est décrit dans les documents RFC 7230 à 7237.
+
+Voici un aperçu des principales RFC pour le protocole HTTP :
+
+RFC 7230: Cette RFC spécifie la syntaxe et la sémantique de base du protocole HTTP/1.1, y compris la façon dont les messages HTTP sont formatés et transmis entre le client et le serveur.
+
+RFC 7231: Cette RFC décrit les méthodes HTTP (par exemple GET, POST, PUT, DELETE) et les codes de statut HTTP (par exemple 200 OK, 404 Not Found) utilisés dans les échanges entre le client et le serveur.
+
+RFC 7232: Cette RFC définit les règles de gestion de la mise en cache des ressources HTTP, y compris les entêtes de requête et de réponse utilisés pour contrôler la mise en cache.
+
+RFC 7233: Cette RFC décrit les entêtes de requête et de réponse utilisés pour la récupération partielle des ressources HTTP (par exemple, la récupération de parties d'un fichier vidéo en streaming).
+
+RFC 7234: Cette RFC définit les règles de validation de la mise en cache des ressources HTTP, y compris la façon dont les serveurs et les clients communiquent pour vérifier si une ressource en cache est toujours valide.
+
+RFC 7235: Cette RFC spécifie les mécanismes d'authentification HTTP, y compris les entêtes d'authentification et les codes de réponse utilisés pour demander et fournir des informations d'identification.
+
+Ces RFC constituent la base du protocole HTTP tel que nous le connaissons aujourd'hui. Cependant, il existe également d'autres RFC qui étendent ou modifient le protocole HTTP, comme RFC 7540 pour HTTP/2 et RFC 8441 pour HTTP/3.
